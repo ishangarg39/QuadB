@@ -16,22 +16,27 @@ const Details = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>{title}</h1>
-      <div className="show-item">
-      <div class="carousel-item active">
-       <div className="carousel-inner" style={{ width: "30%", height:"40%", display:"flex" }}> <img  className="d-block w-100" src={imageUrl}  alt="..." /></div>
-      </div>
-      </div>
-      <div className="card-body">
-        <p className="card-text">{desc}</p>
-        <p className="card-text">
-          <small className="text-muted">Author: {!author ? "Unknown" : author} Date: {new Date(date).toGMTString()}</small>
+      <div className="row">
+        <div className="col-lg-6">
+          <img src={imageUrl} alt="Snow" className="img-fluid" />
+        </div>
+        <div className="col-lg-6">
+        <div className="col-lg-12">{desc}</div>
+        <small className="text-muted">
+
+          Author: {!author ? 'Unknown' : author} Date: {new Date(date).toGMTString()}
+        </small>
+        <div><p onClick={handleReadMoreClick} className="btn btn-dark">
+          Book Ticket
         </p>
-        <p onClick={handleReadMoreClick} className="btn btn-btn-sn btn-dark">
-        Book Ticket
-        </p>
+        </div>
+        </div>
       </div>
+
+      
+      
       {showForm && <Form />}
     </div>
   );
